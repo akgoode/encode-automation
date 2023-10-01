@@ -7,5 +7,8 @@ setup()
 tvdb = TVDB_Service()
 handbrake = Handbrake_Service()
 
-print(tvdb.search("inglourious basterds"))
-print(handbrake.convert("ig"))
+first_result = tvdb.search("inglourious basterds")["results"][0]
+id = first_result["id"]
+title = first_result["original_title"]
+release = first_result["release_date"]
+print(f"{id}___{title}___{release}")
